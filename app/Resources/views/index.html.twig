@@ -7,16 +7,16 @@
         {% block stylesheets %}
             {# On charge le CSS de bootstrap depuis le site directement #}
             <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+            <style type="text/css">
+                body{
+                    background-color: black;
+                }
+                img[alt="May the fourth be with you"]{
+                    display: block;
+                    margin: 50px auto 0 auto;
+                }
+            </style>
         {% endblock %}
-        <style type="text/css">
-            body{
-                background-color: black;
-            }
-            img[alt="May the fourth be with you"]{
-                display: block;
-                margin: 50px auto 0 auto;
-            }
-        </style>
     </head>
     <body>
         <div class="container">
@@ -24,7 +24,10 @@
                 <div class="navbar-header"><a class="navbar-brand" href="{{ path('index') }}">Star Wars Dash Board</a>
                 </div>
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="{{ path('crock_star_ship_manager_homepage') }}">StarShip Manager</a></li>
+                    <li class="active"><a href="{{ path('crock_star_ship_manager_homepage') }}">Gestionnaire de vaisseaux</a></li>
+                </ul>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="{{ path('crock_character_list_homepage') }}">Liste des personnages</a></li>
                 </ul>
             </div>
 
@@ -37,7 +40,7 @@
             </div>
 
             <footer>
-                <p>Crock &copy; {{ 'now'|date('Y') }}</p>
+                <p>Crock {{ 'now'|date('Y') }} with force</p>
             </footer>
         </div>
 

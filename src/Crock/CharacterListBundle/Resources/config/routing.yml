@@ -1,0 +1,4 @@
+crock_character_list_homepage:
+    path:     /
+    defaults:
+        _controller: CrockCharacterListBundle:CharacterList:index

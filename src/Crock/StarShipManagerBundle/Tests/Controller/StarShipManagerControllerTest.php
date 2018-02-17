@@ -4,7 +4,7 @@ namespace Crock\StarShipManagerBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class DefaultControllerTest extends WebTestCase
+class StarShipManagerControllerTest extends WebTestCase
 {
     public function testIndex()
     {
