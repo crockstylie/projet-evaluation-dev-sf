@@ -15,32 +15,55 @@
                     display: block;
                     margin: 50px auto 0 auto;
                 }
+                a{
+                    color: #FFD200
+                }
+                a:hover{
+                    color: #b99800;
+                }
             </style>
         {% endblock %}
     </head>
     <body>
-        <div class="container">
-            <div class="navbar navbar-default navbar-static">
-                <div class="navbar-header"><a class="navbar-brand" href="{{ path('index') }}">Star Wars Dash Board</a>
+        <div class="container-fluid">
+            <div class="navbar navbar-inverse">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="{{ path('index') }}">Star Wars Dash Board</a>
+                    </div>
+                    <ul class="nav navbar-nav">
+                        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                            <li><a href="{{ path('crock_star_ship_manager_homepage') }}">Gestionnaire de vaisseaux</a></li>
+                            <li><a href="{{ path('crock_character_list_homepage') }}">Liste des personnages</a></li>
+                        {% endif %}
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                            <li><a href="{{ path('logout') }}"><span class="glyphicon glyphicon-log-out"></span> Déconnexion</a></li>
+                        {% else %}
+                            <li><a href="{{ path('login') }}"><span class="glyphicon glyphicon-log-in"></span> Connexion</a></li>
+                        {% endif %}
+                    </ul>
                 </div>
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="{{ path('crock_star_ship_manager_homepage') }}">Gestionnaire de vaisseaux</a></li>
-                </ul>
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="{{ path('crock_character_list_homepage') }}">Liste des personnages</a></li>
-                </ul>
             </div>
 
-            <div class="row">
-                <div id="content" class="col-xs-12">
-                    {% block body %}
-                    <img alt="May the fourth be with you" src="{{ asset('img/may_the_4th_be_with_you_star_wars_day1.gif') }}">
-                    {% endblock %}
+            <div class="container">
+                <div class="row">
+                    <div id="content" class="col-xs-12">
+                        {% block body %}
+                            <img alt="May the fourth be with you" src="{{ asset('img/may_the_4th_be_with_you_star_wars_day1.gif') }}">
+                        {% endblock %}
+                    </div>
                 </div>
             </div>
 
             <footer>
-                <p>Crock {{ 'now'|date('Y') }} with force</p>
+                <p>
+                    <a href="http://crock.fr" title="crock.fr" target="_blank">Crock</a> {{ 'now'|date('Y') }} with force
+                </p>
+                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                    <p class="pull-right"> Salut {{ app.user.username }} bienvenue !!!</p>
+                {% endif %}
             </footer>
         </div>
 

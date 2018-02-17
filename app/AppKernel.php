@@ -18,6 +18,7 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new Crock\StarShipManagerBundle\CrockStarShipManagerBundle(),
             new Crock\CharacterListBundle\CrockCharacterListBundle(),
+            new Crock\UserBundle\CrockUserBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
