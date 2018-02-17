@@ -3,7 +3,7 @@
 namespace Crock\StarShipManagerBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -23,10 +23,10 @@ class StarShipType extends AbstractType
           ->add('nom',                   TextType::class)
           ->add('modele',                TextType::class)
           ->add('longueur',              NumberType::class)
-          ->add('vitesseMax',            NumberType::class)
-          ->add('prix',                  NumberType::class)
-          ->add('nbPersonnelsNavigants', NumberType::class)
-          ->add('nbPassagers',           NumberType::class)
+          ->add('vitesseMax',            IntegerType::class)
+          ->add('prix',                  IntegerType::class)
+          ->add('nbPersonnelsNavigants', IntegerType::class)
+          ->add('nbPassagers',           IntegerType::class)
           ->add('save',                  SubmitType::class)
         ;
     }

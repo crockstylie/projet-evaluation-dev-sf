@@ -1,67 +1,74 @@
 <div class="well">
+    <blockquote>
+        <p>
+            Tous les champs du formulaire sont obligatoires.<br>
+            Le nombre de passagers ne doit pas être plus de 10 fois supérieur au nombre de personnels navigants.<br>
+            Un vaisseau peut avoir 0 passager mais a obligatoirement au moins 1 personne navigante.<br>
+        </p>
+    </blockquote>
     {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
 
     {{ form_errors(form) }}
 
     <div class="form-group">
         {{ form_label(form.nom, "Nom : ", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
-        {{ form_errors(form.nom) }}
         <div class="col-sm-10">
+            {{ form_errors(form.nom) }}
             {{ form_widget(form.nom, {'attr': {'class': 'form-control'}}) }}
         </div>
     </div>
 
     <div class="form-group">
         {{ form_label(form.modele, "Modèle : ", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
-        {{ form_errors(form.modele) }}
         <div class="col-sm-10">
+            {{ form_errors(form.modele) }}
             {{ form_widget(form.modele, {'attr': {'class': 'form-control'}}) }}
         </div>
     </div>
 
     <div class="form-group">
         {{ form_label(form.longueur, "Longueur (m) : ", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
-        {{ form_errors(form.longueur) }}
         <div class="col-sm-10">
+            {{ form_errors(form.longueur) }}
             {{ form_widget(form.longueur, {'attr': {'class': 'form-control'}}) }}
         </div>
     </div>
 
     <div class="form-group">
         {{ form_label(form.vitesseMax, "Vitesse maximale (MGLT) : ", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
-        {{ form_errors(form.vitesseMax) }}
         <div class="col-sm-10">
+            {{ form_errors(form.vitesseMax) }}
             {{ form_widget(form.vitesseMax, {'attr': {'class': 'form-control'}}) }}
         </div>
     </div>
 
     <div class="form-group">
         {{ form_label(form.prix, "Prix (CGS) : ", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
-        {{ form_errors(form.prix) }}
         <div class="col-sm-10">
+            {{ form_errors(form.prix) }}
             {{ form_widget(form.prix, {'attr': {'class': 'form-control'}}) }}
         </div>
     </div>
 
     <div class="form-group">
         {{ form_label(form.nbPersonnelsNavigants, "Nombre de personnels navigants : ", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
-        {{ form_errors(form.nbPersonnelsNavigants) }}
         <div class="col-sm-10">
+            {{ form_errors(form.nbPersonnelsNavigants) }}
             {{ form_widget(form.nbPersonnelsNavigants, {'attr': {'class': 'form-control'}}) }}
         </div>
     </div>
 
     <div class="form-group">
         {{ form_label(form.nbPassagers, "Nombre de passagers : ", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
-        {{ form_errors(form.nbPassagers) }}
         <div class="col-sm-10">
+            {{ form_errors(form.nbPassagers) }}
             {{ form_widget(form.nbPassagers, {'attr': {'class': 'form-control'}}) }}
         </div>
     </div>
 
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
-            {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
+            {{ form_widget(form.save, {'label': 'Enregistrer', 'attr': {'class': 'btn btn-primary'}}) }}
         </div>
     </div>
 
