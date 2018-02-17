@@ -13,7 +13,7 @@
             <h2 class="panel-title">{{ starship.nom }}</h2>
         </div>
         <div class="panel-body">
-            <small class="text-muted"><i>Créé le : {{ starship.dateCreation|date('d/m/Y') }}</i> - <i>Modifié le : {{ starship.dateModification|date('d/m/Y') }}</i></small>
+            <small class="text-muted"><i>Créé le : {{ starship.dateCreation|date('d/m/Y') }}</i>{% if starship.dateModification is not null %} - <i>Modifié le : {{ starship.dateModification|date('d/m/Y') }}</i>{% endif %}</small>
         </div>
         <ul class="list-group">
             <li class="list-group-item">

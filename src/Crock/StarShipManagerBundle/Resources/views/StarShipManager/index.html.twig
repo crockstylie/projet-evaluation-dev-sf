@@ -14,7 +14,7 @@
                 <a href="{{ path('crock_star_ship_manager_view', {'id': starship.id}) }}">
                     {{ starship.nom }}
                 </a>
-                créé le : {{ starship.dateCreation|date('d/m/Y') }}
+                créé le : {{ starship.dateCreation|date('d/m/Y') }}{% if starship.dateModification is not null %} - <i>Modifié le : {{ starship.dateModification|date('d/m/Y') }}</i>{% endif %}
             </li>
         </ul>
     {% else %}

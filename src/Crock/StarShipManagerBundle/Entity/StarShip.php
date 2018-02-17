@@ -11,6 +11,7 @@ use Symfony\Component\Validator\Context\ExecutionContextInterface;
  *
  * @ORM\Table(name="star_ship")
  * @ORM\Entity(repositoryClass="Crock\StarShipManagerBundle\Repository\StarShipRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
 class StarShip
 {
@@ -131,7 +132,6 @@ class StarShip
    * @var \DateTime
    *
    * @ORM\Column(name="date_creation", type="datetime")
-   * @Assert\NotBlank(message="Ce champ ne peut-être vide")
    * @Assert\DateTime(message="Ce champ doit-être au format DateTime")
    */
   private $dateCreation;
@@ -139,17 +139,10 @@ class StarShip
   /**
    * @var \DateTime
    *
-   * @ORM\Column(name="date_modification", type="datetime")
-   * @Assert\NotBlank(message="Ce champ ne peut-être vide")
-   * @Assert\DateTime(message="Ce champ doit-être au format DateTime")
+   * @ORM\Column(name="date_modification", type="datetime", nullable=true)
    */
   private $dateModification;
 
-  public function __construct()
-  {
-    $this->dateCreation = new \DateTime();
-    $this->dateModification = new \DateTime();
-  }
 
   /**
    * Get id.
@@ -375,6 +368,22 @@ class StarShip
   public function getDateModification()
   {
     return $this->dateModification;
+  }
+
+  /**
+   * @ORM\PrePersist
+   */
+  public function createDate()
+  {
+    $this->setDateCreation(new \DateTime());
+  }
+
+  /**
+   * @ORM\PreUpdate
+   */
+  public function updateDate()
+  {
+    $this->setDateModification(new \DateTime());
   }
 
   /**
