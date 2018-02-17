@@ -1,5 +1,13 @@
+crock_star_ship_manager:
+    resource: "@CrockStarShipManagerBundle/Resources/config/routing.yml"
+    prefix:   /star-ship-manager
+
 index:
     path: /
     controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController::templateAction
     defaults:
         template: index.html.twig
+
+#app:
+#    resource: "@CrockStarShipManagerBundle/Controller/"
+#    type:     annotaion

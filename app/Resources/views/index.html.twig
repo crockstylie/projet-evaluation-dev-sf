@@ -2,8 +2,12 @@
 <html lang="fr">
     <head>
         <meta charset="utf-8">
-        <title>May The 4th Be With You</title>
+        <title>{% block title %}May The 4th Be With You{% endblock %}</title>
         <link rel="icon" href="{{ asset('favicon.ico') }}" />
+        {% block stylesheets %}
+            {# On charge le CSS de bootstrap depuis le site directement #}
+            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        {% endblock %}
         <style type="text/css">
             body{
                 background-color: black;
@@ -15,6 +19,31 @@
         </style>
     </head>
     <body>
-        <img alt="May the fourth be with you" src="{{ asset('img/may_the_4th_be_with_you_star_wars_day1.gif') }}">
+        <div class="container">
+            <div class="navbar navbar-default navbar-static">
+                <div class="navbar-header"><a class="navbar-brand" href="{{ path('index') }}">Star Wars Dash Board</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="{{ path('crock_star_ship_manager_homepage') }}">StarShip Manager</a></li>
+                </ul>
+            </div>
+
+            <div class="row">
+                <div id="content" class="col-xs-12">
+                    {% block body %}
+                    <img alt="May the fourth be with you" src="{{ asset('img/may_the_4th_be_with_you_star_wars_day1.gif') }}">
+                    {% endblock %}
+                </div>
+            </div>
+
+            <footer>
+                <p>Crock &copy; {{ 'now'|date('Y') }}</p>
+            </footer>
+        </div>
+
+        {% block javascripts %}
+            <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+            <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        {% endblock %}
     </body>
 </html>

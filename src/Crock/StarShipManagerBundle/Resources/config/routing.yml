@@ -1,0 +1,4 @@
+crock_star_ship_manager_homepage:
+    path:     /
+    defaults:
+        _controller: CrockStarShipManagerBundle:StarShipManager:index
