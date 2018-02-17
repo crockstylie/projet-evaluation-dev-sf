@@ -6,7 +6,8 @@
         <link rel="icon" href="{{ asset('favicon.ico') }}" />
         {% block stylesheets %}
             {# On charge le CSS de bootstrap depuis le site directement #}
-            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+            <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" type="text/css">
+            <link rel="stylesheet" href="{{ asset('css/bootstrap-theme.min.css') }}" type="text/css">
             <style type="text/css">
                 body{
                     background-color: black;
@@ -59,7 +60,7 @@
 
             <footer>
                 <p>
-                    <a href="http://crock.fr" title="crock.fr" target="_blank">Crock</a> {{ 'now'|date('Y') }} with force
+                    Star Wars Dash Board - version {{ version }} - Created by <a href="http://crock.fr" title="crock.fr" target="_blank">Crock</a> {{ 'now'|date('Y') }} with force
                 </p>
                 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                     <p class="pull-right"> Salut {{ app.user.username }} bienvenue !!!</p>
@@ -69,7 +70,7 @@
 
         {% block javascripts %}
             <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-            <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+            <script src="{{ asset('js/bootstrap.min.js') }}"></script>
         {% endblock %}
     </body>
 </html>
