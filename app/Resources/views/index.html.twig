@@ -33,13 +33,21 @@
                         <a class="navbar-brand" href="{{ path('index') }}">Star Wars Dash Board</a>
                     </div>
                     <ul class="nav navbar-nav">
-                        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                            <li><a href="{{ path('crock_star_ship_manager_homepage') }}">Gestionnaire de vaisseaux</a></li>
+                        {% if is_granted("ROLE_USER") %}
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                    Gestionnaire de vaisseaux <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{{ path('crock_star_ship_manager_homepage') }}">Liste des vaisseaux</a></li>
+                                    <li><a href="{{ path('crock_star_ship_manager_add') }}">Créer un vaisseau</a></li>
+                                </ul>
+                            </li>
                             <li><a href="{{ path('crock_character_list_homepage') }}">Liste des personnages</a></li>
                         {% endif %}
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                        {% if is_granted("ROLE_USER") %}
                             <li><a href="{{ path('logout') }}"><span class="glyphicon glyphicon-log-out"></span> Déconnexion</a></li>
                         {% else %}
                             <li><a href="{{ path('login') }}"><span class="glyphicon glyphicon-log-in"></span> Connexion</a></li>
@@ -59,12 +67,12 @@
             </div>
 
             <footer>
-                <p>
+                <p class="text-center">
                     Star Wars Dash Board - version {{ version }} - Created by <a href="http://crock.fr" title="crock.fr" target="_blank">Crock</a> {{ 'now'|date('Y') }} with force
+                    {% if is_granted("ROLE_USER") %}
+                        <span class="pull-right"> Salut {{ app.user.username }} bienvenue !!!</span>
+                    {% endif %}
                 </p>
-                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                    <p class="pull-right"> Salut {{ app.user.username }} bienvenue !!!</p>
-                {% endif %}
             </footer>
         </div>
 

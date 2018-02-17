@@ -1,0 +1,20 @@
+{% extends "::index.html.twig" %}
+
+{% block title %}
+    Modification de vaisseau - {{ parent() }}
+{% endblock %}
+
+{% block body %}
+
+    <h1>Modification de vaisseau</h1>
+
+    {{ include("@CrockStarShipManager/StarShipManager/form.html.twig") }}
+
+    <p>
+        <a href="{{ path('crock_star_ship_manager_view', {'id': starship.id}) }}" class="btn btn-default">
+            <i class="glyphicon glyphicon-chevron-left"></i>
+            Retour à la fiche du vaisseau
+        </a>
+    </p>
+
+{% endblock %}

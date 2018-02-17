@@ -1,0 +1,13 @@
+{% extends "::index.html.twig" %}
+
+{% block title %}
+    Création de vaisseau - {{ parent() }}
+{% endblock %}
+
+{% block body %}
+
+    <h1>Création de vaisseau</h1>
+
+    {{ include("@CrockStarShipManager/StarShipManager/form.html.twig") }}
+
+{% endblock %}

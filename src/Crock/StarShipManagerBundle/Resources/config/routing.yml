@@ -2,3 +2,29 @@ crock_star_ship_manager_homepage:
     path:     /
     defaults:
         _controller: CrockStarShipManagerBundle:StarShipManager:index
+
+crock_star_ship_manager_view:
+    path:    /starship/{id}
+    defaults:
+        _controller: CrockStarShipManagerBundle:StarShipManager:view
+    requirements:
+        id: \d+
+
+crock_star_ship_manager_add:
+    path:   /add
+    defaults:
+        _controller: CrockStarShipManagerBundle:StarShipManager:add
+
+crock_star_ship_manager_edit:
+    path:   /edit/{id}
+    defaults:
+        _controller: CrockStarShipManagerBundle:StarShipManager:edit
+    requirements:
+        id: \d+
+
+crock_star_ship_manager_delete:
+    path:   /delete/{id}
+    defaults:
+        _controller: CrockStarShipManagerBundle:StarShipManager:delete
+    requirements:
+        id: \d+

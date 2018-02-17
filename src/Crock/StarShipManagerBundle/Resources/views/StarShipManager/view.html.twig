@@ -1,0 +1,56 @@
+{% extends "::index.html.twig" %}
+
+{% block title %}
+    Page du vaisseau - {{ parent() }}
+{% endblock %}
+
+{% block body %}
+
+    <h1>Page du vaisseau</h1>
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h2 class="panel-title">{{ starship.nom }}</h2>
+        </div>
+        <div class="panel-body">
+            <small class="text-muted"><i>Créé le : {{ starship.dateCreation|date('d/m/Y') }}</i> - <i>Modifié le : {{ starship.dateModification|date('d/m/Y') }}</i></small>
+        </div>
+        <ul class="list-group">
+            <li class="list-group-item">
+                <strong class="text-warning">Modèle</strong> : {{ starship.modele }}
+            </li>
+            <li class="list-group-item">
+                <strong class="text-warning">Longueur (m)</strong> : {{ starship.longueur }}
+            </li>
+            <li class="list-group-item">
+                <strong class="text-warning">Vitesse maximale (MGLT)</strong> : {{ starship.vitesseMax }}
+            </li>
+            <li class="list-group-item">
+                <strong class="text-warning">Prix (CGS)</strong> : {{ starship.prix }}
+            </li>
+            <li class="list-group-item">
+                <strong class="text-warning">Nombre de personnels navigants</strong> : {{ starship.nbPersonnelsNavigants }}
+            </li>
+            <li class="list-group-item">
+                <strong class="text-warning">Nombre de passagers</strong> : {{ starship.nbPassagers }}
+            </li>
+        </ul>
+        <div class="panel-footer">
+            <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                <a href="{{ path('crock_star_ship_manager_homepage') }}" class="btn btn-default">
+                    <i class="glyphicon glyphicon-chevron-left"></i>
+                    Retour à la liste des vaisseaux
+                </a>
+                <a href="{{ path('crock_star_ship_manager_edit', {'id': starship.id}) }}" class="btn btn-primary">
+                    <i class="glyphicon glyphicon-edit"></i>
+                    Modifier le vaisseau
+                </a>
+                <a href="{{ path('crock_star_ship_manager_delete', {'id': starship.id}) }}" class="btn btn-danger">
+                    <i class="glyphicon glyphicon-trash"></i>
+                    Supprimer le vaisseau
+                </a>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

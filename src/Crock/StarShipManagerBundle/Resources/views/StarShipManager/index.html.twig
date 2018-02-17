@@ -1,11 +1,24 @@
 {% extends "::index.html.twig" %}
 
 {% block title %}
-    Gestion des vaisseaux - {{ parent() }}
+    Liste des vaisseaux - {{ parent() }}
 {% endblock %}
 
 {% block body %}
 
-    <h2>Gestion des vaisseaux</h2>
+    <h1>Liste des vaisseaux</h1>
+
+    {% for starship in listStarShips %}
+        <ul>
+            <li>
+                <a href="{{ path('crock_star_ship_manager_view', {'id': starship.id}) }}">
+                    {{ starship.nom }}
+                </a>
+                créé le : {{ starship.dateCreation|date('d/m/Y') }}
+            </li>
+        </ul>
+    {% else %}
+        <p class="well-lg">Vous n'avez pas encore de vaisseau</p>
+    {% endfor %}
 
 {% endblock %}

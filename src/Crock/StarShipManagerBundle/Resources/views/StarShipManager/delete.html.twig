@@ -1,0 +1,24 @@
+{% extends "::index.html.twig" %}
+
+{% block title %}
+    Suppression de vaisseau - {{ parent() }}
+{% endblock %}
+
+{% block body %}
+
+    <h1>Suppression de vaisseau</h1>
+
+    <p>
+        Êtes-vous certain de vouloir supprimer le vaisseau " {{ starship.nom }} " ?
+    </p>
+
+    <form action="{{ path('crock_star_ship_manager_delete', {'id': starship.id}) }}" method="post">
+        <a href="{{ path('crock_star_ship_manager_view', {'id': starship.id}) }}" class="btn btn-default">
+            <i class="glyphicon glyphicon-chevron-left"></i>
+            Retour à la fiche du vaisseau
+        </a>
+        <input type="submit" value="Supprimer" class="btn btn-danger"/>
+        {{ form_rest(form) }}
+    </form>
+
+{% endblock %}
