@@ -5,4 +5,4 @@ services:
     crock_characterlist.twig.filmsfilter_extension:
         class: Crock\CharacterListBundle\Twig\FilmsFilterExtension
         tags:
-        - { name: twig.extension }
+            - { name: twig.extension }
