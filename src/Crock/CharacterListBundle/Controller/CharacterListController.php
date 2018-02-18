@@ -2,6 +2,8 @@
 
 namespace Crock\CharacterListBundle\Controller;
 
+use Crock\CharacterListBundle\Event\CrockCharacterListEvents;
+use Crock\CharacterListBundle\Event\ApiCallEvent;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -16,7 +18,11 @@ class CharacterListController extends Controller
     ;
 
     $response = $request
-      ->performRequest('https://swapi.co/api/people/');
+      ->performRequest('https://swapi.co/api/people/')
+    ;
+
+    $event = new ApiCallEvent($request);
+    $this->get('event_dispatcher')->dispatch(CrockCharacterListEvents::API_CALL, $event);
 
     if (isset($response['data']['results'])) {
       $characters = $response['data']['results'];

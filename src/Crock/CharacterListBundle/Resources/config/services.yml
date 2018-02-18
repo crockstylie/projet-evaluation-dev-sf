@@ -6,3 +6,15 @@ services:
         class: Crock\CharacterListBundle\Twig\FilmsFilterExtension
         tags:
             - { name: twig.extension }
+
+    crock_characterlist.api_call.api_call_log_iterator:
+        class: Crock\CharacterListBundle\ApiCall\ApiCallLogIterator
+        arguments:
+            - '@service_container'
+
+    crock_characterlist.api_call.api_call_event_listener:
+        class: Crock\CharacterListBundle\ApiCall\ApiCallEventListener
+        arguments:
+            - "@crock_characterlist.api_call.api_call_log_iterator"
+        tags:
+            - { name: kernel.event_listener, event: crock_characterlist.api_call, method: apiLogIterate }
