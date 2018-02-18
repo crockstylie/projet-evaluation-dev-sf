@@ -1,4 +1,8 @@
 services:
-#    crock_character_list.example:
-#        class: Crock\CharacterListBundle\Example
-#        arguments: ["@service_id", "plain_value", "%parameter%"]
+    crock_characterlist.starwarslist:
+        class: Crock\CharacterListBundle\StarWarsList\CrockStarWarsList
+
+    crock_characterlist.twig.filmsfilter_extension:
+        class: Crock\CharacterListBundle\Twig\FilmsFilterExtension
+        tags:
+        - { name: twig.extension }

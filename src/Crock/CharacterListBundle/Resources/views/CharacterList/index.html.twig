@@ -8,4 +8,43 @@
 
     <h2>Liste des personnages</h2>
 
+    <div class="container">
+        <div class="row">
+            {% for character in characters|slice(0, 10) %}
+                <div class="col-md-4">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">{{ character.name }}</h3>
+                        </div>
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <strong class="text-warning">Taille</strong> : {{ character.height }}
+                            </li>
+                            <li class="list-group-item">
+                                <strong class="text-warning">Poids</strong> : {{ character.mass }}
+                            </li>
+                            <li class="list-group-item">
+                                <strong class="text-warning">Couleur des cheveux</strong> : {{ character.hair_color }}
+                            </li>
+                            <li class="list-group-item">
+                                <strong class="text-warning">Couleur de la peau</strong> : {{ character.skin_color }}
+                            </li>
+                            <li class="list-group-item">
+                                <strong class="text-warning">Couleur des yeux</strong> : {{ character.eye_color }}
+                            </li>
+                            <li class="list-group-item">
+                                <strong class="text-warning">Année de naissance</strong> : {{ character.birth_year }}
+                            </li>
+                            <li class="list-group-item">
+                                <strong class="text-warning">Genre</strong> : {{ character.gender }}
+                            </li>
+                            <li class="list-group-item">
+                                <strong class="text-warning">Apparaît dans les films</strong> : {{ convertFilmLinksToFilmIds(character.films) | join(', ') }}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
 {% endblock %}
